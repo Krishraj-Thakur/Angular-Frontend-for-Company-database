@@ -1,0 +1,26 @@
+
+
+.maindiv {
+  
+  
+  background-color: black;
+}
+
+.page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-half {
+  flex: 1;
+  
+  background-color: #f9f9f9; /* Optional */
+}
+
+.bottom-half {
+  flex: 1;
+  overflow: auto;
+  background-color: #fff; /* Optional */
+  padding: 16px;
+}

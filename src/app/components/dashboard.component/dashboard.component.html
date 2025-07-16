@@ -1,0 +1,59 @@
+<div>
+
+    
+    
+    <div class="maindiv" >
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- ID -->
+            <ng-container matColumnDef="sn">
+                <th mat-header-cell *matHeaderCellDef> S.No </th>
+                <td mat-cell *matCellDef="let row;let i = index"> {{i+1}} </td>
+            </ng-container>
+
+            <!-- Ref Num -->
+            <ng-container matColumnDef="refNum">
+                <th mat-header-cell *matHeaderCellDef> Ref Num </th>
+                <td mat-cell *matCellDef="let row"> {{row.refNum}} </td>
+            </ng-container>
+
+            <!-- PR Type -->
+            <ng-container matColumnDef="prtype">
+                <th mat-header-cell *matHeaderCellDef> PR Type </th>
+                <td mat-cell *matCellDef="let row"> {{row?.prtypeNavigation?.typeName}} </td>
+            </ng-container>
+
+            <!-- Company -->
+            <ng-container matColumnDef="company">
+                <th mat-header-cell *matHeaderCellDef> Company </th>
+                <td mat-cell *matCellDef="let row"> {{row.company}} </td>
+            </ng-container>
+
+            <!-- PR Consumed -->
+            <ng-container matColumnDef="prComsumed">
+                <th mat-header-cell *matHeaderCellDef> PR Consumed </th>
+                <td mat-cell *matCellDef="let row"> {{row.prComsumed}} </td>
+            </ng-container>
+
+            <!-- Currency -->
+            <ng-container matColumnDef="currency">
+                <th mat-header-cell *matHeaderCellDef> Currency </th>
+                <td mat-cell *matCellDef="let row"> {{row.currency}} </td>
+            </ng-container>
+
+            <!-- Remarks -->
+            <ng-container matColumnDef="remarks">
+                <th mat-header-cell *matHeaderCellDef> Remarks </th>
+                <td mat-cell *matCellDef="let row"> {{row.remarks}} </td>
+            </ng-container>
+
+            <!-- Header and Row Definitions -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+
+
+    </div>
+</div>
