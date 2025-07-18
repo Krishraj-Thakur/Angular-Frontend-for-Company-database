@@ -1,26 +1,16 @@
+@use '@angular/material' as mat;
 
 
 .maindiv {
-  
-  
-  background-color: black;
+    overflow: auto;
+    
 }
 
-.page-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.top-half {
-  flex: 1;
-  
-  background-color: #f9f9f9; /* Optional */
-}
-
-.bottom-half {
-  flex: 1;
-  overflow: auto;
-  background-color: #fff; /* Optional */
-  padding: 16px;
+//declare using matliz8
+.maindiv th {
+  position: sticky;
+  top: 0;
+  background-color: goldenrod;
+  color: black; /* or any background to avoid transparency */
+  z-index: 2; /* ensures it stays above other content */
 }

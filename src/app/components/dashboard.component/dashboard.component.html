@@ -1,59 +1,91 @@
-<div>
+<div style="overflow: hidden;">
+    <div style="padding:2px;overflow:none!important;">
+        <div style="height: 200px;background-color:white;border-radius: 5px;">
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <mat-card appearance="outlined"
+                    style="color: black;max-width: fit-content;background-color: white;border: 2px solid;box-shadow: 2px 3px;">
+                    <mat-card-header>
+                        <mat-card-title>Asset Count : {{assetCount}}</mat-card-title>
+                    </mat-card-header>
 
-    
-    
-    <div class="maindiv" >
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                </mat-card>
+                <br>
+                <mat-card appearance="outlined"
+                    style="color: black;max-width: fit-content;background-color: white;border: 2px solid;box-shadow: 2px 3px;">
+                    <mat-card-header>
+                        <mat-card-title>Service Count : {{serviceCount}}</mat-card-title>
+                    </mat-card-header>
 
-            <!-- ID -->
-            <ng-container matColumnDef="sn">
-                <th mat-header-cell *matHeaderCellDef> S.No </th>
-                <td mat-cell *matCellDef="let row;let i = index"> {{i+1}} </td>
-            </ng-container>
-
-            <!-- Ref Num -->
-            <ng-container matColumnDef="refNum">
-                <th mat-header-cell *matHeaderCellDef> Ref Num </th>
-                <td mat-cell *matCellDef="let row"> {{row.refNum}} </td>
-            </ng-container>
-
-            <!-- PR Type -->
-            <ng-container matColumnDef="prtype">
-                <th mat-header-cell *matHeaderCellDef> PR Type </th>
-                <td mat-cell *matCellDef="let row"> {{row?.prtypeNavigation?.typeName}} </td>
-            </ng-container>
-
-            <!-- Company -->
-            <ng-container matColumnDef="company">
-                <th mat-header-cell *matHeaderCellDef> Company </th>
-                <td mat-cell *matCellDef="let row"> {{row.company}} </td>
-            </ng-container>
-
-            <!-- PR Consumed -->
-            <ng-container matColumnDef="prComsumed">
-                <th mat-header-cell *matHeaderCellDef> PR Consumed </th>
-                <td mat-cell *matCellDef="let row"> {{row.prComsumed}} </td>
-            </ng-container>
-
-            <!-- Currency -->
-            <ng-container matColumnDef="currency">
-                <th mat-header-cell *matHeaderCellDef> Currency </th>
-                <td mat-cell *matCellDef="let row"> {{row.currency}} </td>
-            </ng-container>
-
-            <!-- Remarks -->
-            <ng-container matColumnDef="remarks">
-                <th mat-header-cell *matHeaderCellDef> Remarks </th>
-                <td mat-cell *matCellDef="let row"> {{row.remarks}} </td>
-            </ng-container>
-
-            <!-- Header and Row Definitions -->
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-        </table>
+                </mat-card>
+                <br>
+                <mat-card appearance="outlined"
+                    style="color: black;max-width: fit-content;background-color: white;border: 2px solid;box-shadow: 2px 3px;">
+                    <mat-card-header>
+                        <mat-card-title>Source : {{sourceCount}}</mat-card-title>
+                    </mat-card-header>
+                </mat-card>
+            </div>
+        </div>
 
 
+        <div class="maindiv"
+            style="max-height: calc(100vh - 200px); margin: auto; overflow-x: auto;overflow-y: auto;border-radius: 5px;">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+                <!-- ID -->
+                <ng-container matColumnDef="sn">
+                    <th mat-header-cell *matHeaderCellDef> S.No </th>
+                    <td mat-cell *matCellDef="let row;let i = index"> {{i+1}} </td>
+                </ng-container>
+
+                <!-- Ref Num -->
+                <ng-container matColumnDef="refNum">
+                    <th mat-header-cell *matHeaderCellDef> Ref Num </th>
+                    <td mat-cell *matCellDef="let row"> {{row.refNum}} </td>
+                </ng-container>
+
+                <!-- PR Type -->
+                <ng-container matColumnDef="prtype">
+                    <th mat-header-cell *matHeaderCellDef> PR Type </th>
+                    <td mat-cell *matCellDef="let row"> {{row?.prtypeNavigation?.typeName}} </td>
+                </ng-container>
+
+                <!-- Company -->
+                <ng-container matColumnDef="company">
+                    <th mat-header-cell *matHeaderCellDef> Company </th>
+                    <td mat-cell *matCellDef="let row"> {{row.company}} </td>
+                </ng-container>
+
+                <!-- PR Consumed -->
+                <ng-container matColumnDef="prComsumed">
+                    <th mat-header-cell *matHeaderCellDef> PR Consumed </th>
+                    <td mat-cell *matCellDef="let row"> {{row.prComsumed}} </td>
+                </ng-container>
+
+                <!-- Currency -->
+                <ng-container matColumnDef="currency">
+                    <th mat-header-cell *matHeaderCellDef> Currency </th>
+                    <td mat-cell *matCellDef="let row"> {{row.currency}} </td>
+                </ng-container>
+
+                <!-- Remarks -->
+                <ng-container matColumnDef="remarks">
+                    <th mat-header-cell *matHeaderCellDef> Remarks </th>
+                    <td mat-cell *matCellDef="let row"> {{row.remarks}} </td>
+                </ng-container>
+
+                <!-- Header and Row Definitions -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+            
+
+
+
+
+        </div>
+        
     </div>
 </div>
