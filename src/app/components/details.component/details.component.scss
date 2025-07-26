@@ -1,0 +1,25 @@
+body{
+    background-color: goldenrod;
+}
+
+.header #btn{
+    background-color: rgb(26, 25, 25);
+    color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(250, 244, 244);
+}
+
+.header #btn:hover{
+    background-color: goldenrod;
+}
+
+.header {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: black;
+    border-bottom: 3px solid hsl(0, 0%, 88%);
+}
+

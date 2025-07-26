@@ -14,3 +14,35 @@
   color: black; /* or any background to avoid transparency */
   z-index: 2; /* ensures it stays above other content */
 }
+
+.sn-cell{
+  cursor: pointer;
+}
+
+.sn-cell:hover{
+  color: crimson;
+}
+
+.asset, .service, .source {
+  max-width: fit-content;
+  color: white;
+  border-radius: 5px;
+}
+
+.asset {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  border-left: 5px solid #2196f3;
+}
+
+.service {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+  border-left: 5px solid #ab47bc;
+}
+
+.source {
+  background-color: #f1f8e9;
+  color: #33691e;
+  border-left: 5px solid #8bc34a;
+}

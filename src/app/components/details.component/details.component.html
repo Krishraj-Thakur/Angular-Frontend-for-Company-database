@@ -1,0 +1,79 @@
+<body> 
+<div style="margin-bottom: 20px;" class="header">
+    <h2>Purchase Request Details</h2>
+  <button mat-raised-button color="primary" (click)="goBack()" id="btn">
+    ← Back to Dashboard
+  </button>
+</div>
+
+
+
+
+<div style="display: flex; gap: 20px;" class="details-container">
+    <div style="flex: 1;border-radius: 5px;">
+        <table mat-table [dataSource]="prGeneralDataSource" class="mat-elevation-z2">
+
+            <!-- Label Column -->
+            <ng-container matColumnDef="label">
+                <th mat-header-cell *matHeaderCellDef> Field </th>
+                <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            </ng-container>
+
+            <!-- Value Column -->
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef> Value </th>
+                <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="prGeneralDisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: prGeneralDisplayedColumns;"></tr>
+
+        </table>
+
+    </div>
+
+
+
+
+
+    <div style="flex: 2;border-radius: 5px;" >
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="prId">
+                <th mat-header-cell *matHeaderCellDef> PR ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.prId}} </td>
+            </ng-container>
+
+            <!-- Material ID -->
+            <ng-container matColumnDef="matId">
+                <th mat-header-cell *matHeaderCellDef> Material ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.matId}} </td>
+            </ng-container>
+
+            <!-- Available Quantity -->
+            <ng-container matColumnDef="availableQuantity">
+                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.availableQuantity}} </td>
+            </ng-container>
+
+            <!-- Delivery Date -->
+            <ng-container matColumnDef="deliveryDate">
+                <th mat-header-cell *matHeaderCellDef> Delivery Date </th>
+                <td mat-cell *matCellDef="let row"> {{ row.deliveryDate }} </td>
+            </ng-container>
+
+            <!-- Current Status -->
+            <ng-container matColumnDef="currentStatus">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.currentStatus}} </td>
+            </ng-container>
+
+            <!-- Header and Row Declarations -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </div>
+
+</div>
+</body>

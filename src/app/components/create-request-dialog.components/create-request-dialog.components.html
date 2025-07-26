@@ -1,0 +1,123 @@
+<div class="newreq">
+    <h2 mat-dialog-title>Create Request</h2>
+    <mat-dialog-content [formGroup]="requestForm" class="request-form">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Ref Num.</mat-label>
+                <input matInput formControlName="refNum" required>
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>PR Type</mat-label>
+                <mat-select formControlName="prtype" required>
+                    <mat-option *ngFor="let type of prTypeOptions" [value]="type.id">{{ type.name }}</mat-option>
+                </mat-select>
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Company</mat-label>
+                <input matInput formControlName="company" required>
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>PR Consumed</mat-label>
+                <input matInput formControlName="prComsumed" required>
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Currency</mat-label>
+                <input matInput formControlName="currency" required>
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Remarks</mat-label>
+                <input matInput formControlName="remarks">
+            </mat-form-field><br>
+
+        </div>
+
+        <h3>Material Items</h3>
+
+        <table mat-table [dataSource]="pritemDetails.controls" class="mat-elevation-z8" formArrayName="pritemDetails">
+
+  <!-- Material ID Column -->
+  <ng-container matColumnDef="matId">
+    <th mat-header-cell *matHeaderCellDef> Material </th>
+    <td mat-cell *matCellDef="let row; let i = index">
+      <div [formGroupName]="i">
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="matId" required>
+            <mat-option *ngFor="let mat of materialOptions" [value]="mat.id">{{ mat.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Quantity -->
+  <ng-container matColumnDef="availableQuantity">
+    <th mat-header-cell *matHeaderCellDef> Quantity </th>
+    <td mat-cell *matCellDef="let row; let i = index">
+      <div [formGroupName]="i">
+        <mat-form-field appearance="fill">
+          <input matInput type="number" formControlName="availableQuantity">
+        </mat-form-field>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Delivery Date -->
+  <ng-container matColumnDef="deliveryDate">
+    <th mat-header-cell *matHeaderCellDef> Delivery Date </th>
+    <td mat-cell *matCellDef="let row; let i = index">
+      <div [formGroupName]="i">
+        <mat-form-field appearance="fill">
+          <input matInput type="date" formControlName="deliveryDate">
+        </mat-form-field>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Current Status -->
+  <ng-container matColumnDef="currentStatus">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let row; let i = index">
+      <div [formGroupName]="i">
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="currentStatus">
+        </mat-form-field>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Delete Button -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let row; let i = index">
+      <button mat-icon-button color="warn" (click)="removeMaterial(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['matId', 'availableQuantity', 'deliveryDate', 'currentStatus', 'actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['matId', 'availableQuantity', 'deliveryDate', 'currentStatus', 'actions'];"></tr>
+
+</table>
+         
+    <!-- Add Material Button -->
+<div style="margin: 16px 0;">
+  <button mat-raised-button color="primary" (click)="addMaterial()">
+    <mat-icon>add</mat-icon> Add Material
+  </button>
+</div>
+
+<!-- Submit & Cancel Buttons -->
+<div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+  <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="accent" (click)="onSubmit()">Submit Request</button>
+</div>
+
+
+    </mat-dialog-content>
+</div>
